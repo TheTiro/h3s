@@ -1,8 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
+# Dependencies
+node_modules/
+.pnp
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -10,32 +8,89 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
+# Next.js
+.next/
+out/
 
-# next.js
-/.next/
-/out/
+# Production / build
+build/
+dist/
 
-# production
-/build
+# Env & secrets (keep only .env.example in the repo)
+.env
+.env.*
+!.env.example
 
-# misc
-.DS_Store
-*.pem
-
-# debug
+# Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+lerna-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Debug / coverage
+coverage/
+*.lcov
+.nyc_output
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE / editor
+.idea/
+.vscode/
+*.code-workspace
+*.swp
+*.swo
+*~
+
+# Cursor / agent local state
+.cursor/
+.agents/
+
+# Local backups and archives
+backup/
+backups/
+*.bak
+*_bak.*
+.next.bak/
+.next.bak2/
+/*.zip
+
+# Temp / scratch
+tmp/
+temp/
+.tmp-*
+*.tmp
+
+# Caches
+.cache/
+.parcel-cache/
+.eslintcache
+.turbo/
+
+# Vercel / deploy tooling local state
+.vercel
+
+# Certificates / keys
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ---------------------------------------------------------------------------
+# Local help / deploy notes (not required to run or clone the app)
+# ---------------------------------------------------------------------------
+*_help.md
+*_HELP.md
+docker_commands.md
+docs/
+*.canvas.tsx

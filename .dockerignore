@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.git
+backup
+backups
+.cursor
+.idea
+.vercel
+*.log
+.env
+.env.*
+!.env.example
+.agents
+*.zip
+npm-debug.log*
+docker_commands.md
