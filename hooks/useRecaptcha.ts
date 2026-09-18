@@ -82,6 +82,7 @@ function waitUntilRecaptchaReady(): Promise<void> {
   });
 }
 
+/** Load reCAPTCHA v3 — shows the badge in the bottom-right corner. */
 export function preloadRecaptcha(siteKey = recaptchaSiteKey()): Promise<void> {
   if (!siteKey) {
     return Promise.reject(new Error("recaptcha not configured"));
@@ -133,6 +134,10 @@ export function preloadRecaptcha(siteKey = recaptchaSiteKey()): Promise<void> {
   });
 }
 
+/**
+ * Contact form only — preloads reCAPTCHA on mount (badge visible)
+ * and scopes the badge to the current page via body[data-recaptcha-form].
+ */
 export function useRecaptchaForm(action: RecaptchaFormAction) {
   const siteKey = recaptchaSiteKey();
   const enabled = siteKey.length > 0;

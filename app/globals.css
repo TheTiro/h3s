@@ -83,24 +83,80 @@ body {
   filter: blur(9px);
 }
 
-@keyframes logo-breathe {
+@keyframes logo-float {
   0%,
   100% {
-    transform: scale(1);
+    transform: translateY(0);
   }
   50% {
-    transform: scale(1.05);
+    transform: translateY(-6px);
   }
 }
 
-.logo-breathe {
-  transform-origin: center;
-  animation: logo-breathe 3.8s ease-in-out infinite;
+@keyframes logo-shimmer {
+  0%,
+  22% {
+    background-position: 130% 0;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  58% {
+    background-position: -30% 0;
+    opacity: 1;
+  }
+  68%,
+  100% {
+    background-position: -30% 0;
+    opacity: 0;
+  }
+}
+
+.logo-aura {
+  position: relative;
+  display: inline-flex;
+  isolation: isolate;
+  animation: logo-float 7.5s ease-in-out infinite;
+}
+
+.logo-aura-shimmer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    118deg,
+    transparent 0%,
+    transparent 36%,
+    rgba(255, 255, 255, 0.08) 44%,
+    rgba(255, 255, 255, 0.62) 50%,
+    rgba(139, 255, 42, 0.28) 54%,
+    rgba(58, 212, 232, 0.18) 58%,
+    transparent 66%,
+    transparent 100%
+  );
+  background-size: 240% 100%;
+  background-position: 130% 0;
+  mix-blend-mode: screen;
+  -webkit-mask-image: url("/images/h3-logo.webp");
+  mask-image: url("/images/h3-logo.webp");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  animation: logo-shimmer 5s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .logo-breathe {
+  .logo-aura,
+  .logo-aura-shimmer {
     animation: none;
+  }
+
+  .logo-aura-shimmer {
+    opacity: 0;
   }
 }
 
@@ -117,12 +173,21 @@ textarea:focus-visible {
   outline-offset: 2px;
 }
 
-.grecaptcha-badge {
+/* reCAPTCHA v3 badge — only on contact (see useRecaptchaForm) */
+body:not([data-recaptcha-form]) .grecaptcha-badge {
   visibility: hidden !important;
+  pointer-events: none !important;
 }
 
+/* Compact badge left of BackToTop (right-6 + 48px + gap) */
 body[data-recaptcha-form] .grecaptcha-badge {
   visibility: visible !important;
+  z-index: 65 !important;
+  bottom: 1.5rem !important;
+  right: 5.5rem !important;
+  width: 70px !important;
+  overflow: hidden !important;
+  transition: none !important;
 }
 
 .site-qr-frame {

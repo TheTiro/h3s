@@ -1,6 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { BackToTop } from "@/components/BackToTop";
+import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -9,7 +11,12 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   const isEnter = pathname === "/";
 
   if (isEnter) {
-    return <>{children}</>;
+    return (
+      <>
+        {children}
+        <CookieConsentBanner />
+      </>
+    );
   }
 
   return (
@@ -17,6 +24,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
       <SiteHeader />
       <main className="site-backdrop flex flex-1 flex-col">{children}</main>
       <SiteFooter />
+      <BackToTop />
+      <CookieConsentBanner />
     </>
   );
 }

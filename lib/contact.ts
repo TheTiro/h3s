@@ -2,7 +2,7 @@ export const CONTACT_HERO = {
   title: "Within reach",
   subtitle: "Inquire. Agree. Launch.",
   heading: "Please fill in the form*",
-  note: "*We will contact you as soon as possible.",
+  note: "*We will contact you shortly.",
   media: {
     src: "/images/contact/crystal-rose.webp",
     alt: "Photorealistic 3D visualisation of a crystal rose",

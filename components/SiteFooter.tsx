@@ -19,9 +19,14 @@ export function SiteFooter() {
             S<span className="text-accent">T</span>eam-development
           </a>.
         </p>
-        <Link href="/privacy-policy" className="uppercase tracking-[0.18em] hover:text-accent">
-          Privacy
-        </Link>
+        <nav className="flex flex-wrap gap-4" aria-label="Legal">
+          <Link href="/privacy-policy" className="uppercase tracking-[0.18em] hover:text-accent">
+            Privacy
+          </Link>
+          <Link href="/cookie-policy" className="uppercase tracking-[0.18em] hover:text-accent">
+            Cookies
+          </Link>
+        </nav>
       </div>
     </footer>
   );

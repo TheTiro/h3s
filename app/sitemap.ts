@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/activities",
     "/contact",
     "/privacy-policy",
+    "/cookie-policy",
   ];
   const now = new Date();
 

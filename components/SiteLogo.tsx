@@ -22,7 +22,7 @@ export function SiteLogo({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center ${size === "hero" ? "logo-breathe" : ""}`}
+      className={`inline-flex items-center ${size === "hero" ? "logo-aura" : ""}`}
       aria-label="H3 Studios"
     >
       <Image
@@ -33,6 +33,9 @@ export function SiteLogo({
         className={imgClass}
         priority
       />
+      {size === "hero" ? (
+        <span className="logo-aura-shimmer" aria-hidden />
+      ) : null}
     </Link>
   );
 }
